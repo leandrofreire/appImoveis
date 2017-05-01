@@ -22,13 +22,13 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        <header>
-          <!--Navbar-->
-          @include('layouts._site._nav')
-        </header>
-        @yield('content')
-    </div>
+    <header>
+      <!--Navbar-->
+      @include('layouts._site._nav')
+    </header>
+    <main><!--Fixar rodape no footer-->
+      @yield('content')
+    </main>
     <!--Footer-->
     @include('layouts._site._footer')
 
