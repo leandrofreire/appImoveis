@@ -1,6 +1,7 @@
 @extends('layouts.site')
 
 @section('content')
+@include('layouts._site._slides')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
