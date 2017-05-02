@@ -23,6 +23,12 @@ Route::get('/contato', function(){
   return view('site.contato');
 })->name('site.contato');
 
+Route::get('/imovel/{id}/{titulo?}', function(){
+  return view('site.imovel');
+})->name('site.imovel');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
