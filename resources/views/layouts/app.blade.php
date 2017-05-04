@@ -25,28 +25,11 @@
     </script>
 </head>
 <body>
-    <div id="app">
-      <nav>
-        <div class="nav-wrapper blue">
-          <div class="container">
-            <a href="#!" class="brand-logo">Logo</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse">
-              <i class="material-icons">menu</i>
-            </a>
-            <!--Desktop-->
-            <ul class="right hide-on-med-and-down">
-              <li><a href="#">Home</a></li>
-            </ul>
-            <!--Mobile-->
-            <ul class="side-nav" id="mobile-demo">
-              <li><a href="#">Home</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-        @yield('content')
-    </div>
-
+    @include('layouts._admin._nav')
+    <main>
+    @yield('content')
+    </main>
+    @include('layouts._admin._footer')
     <!-- Scripts -->
     <script src="{{ asset('lib/jquery/dist/jquery.js') }}"></script>
     <script src="{{ asset('lib/materialize/dist/js/materialize.js') }}"></script>
