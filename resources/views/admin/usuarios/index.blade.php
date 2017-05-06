@@ -3,7 +3,7 @@
 
 @section('content')
   <div class="container">
-    <h2 class="center">Lista de usuários</h2>
+    <h5 class="center">Lista de usuários</h5>
 
     <div class="row">
       <nav>
@@ -40,6 +40,9 @@
         </tbody>
         @endforeach
       </table>
+    </div>
+    <div class="row">
+      <a class="btn blue" href="{{ route('admin.usuarios.adicionar') }}">Adicionar</a>
     </div>
 </div>
 @endsection

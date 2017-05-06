@@ -42,7 +42,11 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin', function(){
     return view('admin.principal.index');
   })->name('admin.principal');
-
+  //Crud usuarios
   Route::get('/admin/usuarios', 'Admin\UsuarioController@index')->name('admin.usuarios');
+  Route::get('/admin/usuarios/adicionar',
+  'Admin\UsuarioController@adicionar')->name('admin.usuarios.adicionar');
+  Route::post('/admin/usuarios/salvar',
+  'Admin\UsuarioController@salvar')->name('admin.usuarios.salvar');
 
 });
