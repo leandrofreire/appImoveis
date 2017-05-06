@@ -10,7 +10,7 @@
         <div class="nav-wrapper green">
           <div class="col s12">
             <a href="{{ route('admin.principal') }}" class="breadcrumb">Inicio</a>
-            <a href="#!" class="breadcrumb">Lista de usuários</a>
+            <a class="breadcrumb">Lista de usuários</a>
           </div>
         </div>
       </nav>
@@ -27,13 +27,13 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($usuarios as $user)
+          @foreach($usuarios as $usuario)
           <tr>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
+            <td>{{ $usuario->id }}</td>
+            <td>{{ $usuario->name }}</td>
+            <td>{{ $usuario->email }}</td>
             <td>
-              <a class="btn orange" href="#">Editar</a>
+              <a class="btn orange" href="{{ route('admin.usuarios.editar', $usuario->id) }}">Editar</a>
               <a class="btn red" href="#">Deletar</a>
             </td>
           </tr>
