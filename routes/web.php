@@ -32,4 +32,11 @@ Route::get('/admin/login', function(){
   return view('admin.login.index');
 })->name('admin.login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Metodo post para logar usuario
+Route::post('admin/login', 'Admin\UsuarioController@login')->name('admin.login');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', function(){
+  return view('admin.principal.index');
+})->name('admin.principal');
