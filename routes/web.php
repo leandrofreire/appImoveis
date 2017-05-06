@@ -52,5 +52,7 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\UsuarioController@editar')->name('admin.usuarios.editar');
   Route::put('/admin/usuarios/atualizar/{id}',
   'Admin\UsuarioController@atualizar')->name('admin.usuarios.atualizar');
+  Route::get('/admin/usuarios/deletar/{id}',
+  'Admin\UsuarioController@deletar')->name('admin.usuarios.deletar');
 
 });
