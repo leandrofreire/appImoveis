@@ -26,7 +26,7 @@ class UsuarioController extends Controller
       ]);
       return redirect()->route('admin.login');
     }
-
+    // Métodos de CRUD
     public function sair()
     {
       Auth::logout();
@@ -36,5 +36,24 @@ class UsuarioController extends Controller
     {
       $usuarios = User::all();
       return view('admin.usuarios.index', compact('usuarios'));
+    }
+    public function adicionar()
+    {
+      return view('admin.usuarios.adicionar');
+    }
+    public function salvar(Request $request)
+    {
+      $dados = $request->all();
+      $usuario = new User();
+      $usuario->name = $dados['name'];
+      $usuario->email = $dados['email'];
+      $usuario->password = bcrypt($dados['password']);
+
+      $usuario->save();
+      \Session::flash('mensagem',[
+        'msg'=> 'Registro criado com sucesso',
+        'class' => 'green white-text'
+      ]);
+      return redirect()->route('admin.usuarios');
     }
 }
