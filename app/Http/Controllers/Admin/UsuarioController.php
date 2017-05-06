@@ -11,11 +11,18 @@ class UsuarioController extends Controller
     public function login(Request $request)
     {
       $dados = $request->all();
-      //dd($dados);
+
       if(Auth::attempt(['email' =>$dados['email'], 'password'=>$dados['password']])){
+        \Session::flash('mensagem',[
+          'msg'=> 'Login realizado com sucesso',
+          'class' => 'green white-text'
+        ]);
         return redirect()->route('admin.principal');
       }
-
-      return redirect()->route('site.home');
+      \Session::flash('mensagem',[
+        'msg'=> 'Senha ou email incorretos',
+        'class' => 'red white-text'
+      ]);
+      return redirect()->route('admin.login');
     }
 }

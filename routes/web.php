@@ -35,8 +35,8 @@ Route::get('/admin/login', function(){
 //Metodo post para logar usuario
 Route::post('admin/login', 'Admin\UsuarioController@login')->name('admin.login');
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/admin', function(){
-  return view('admin.principal.index');
-})->name('admin.principal');
+Route::group(['middleware' => 'auth'], function(){
+  Route::get('/admin', function(){
+    return view('admin.principal.index');
+  })->name('admin.principal');
+});
