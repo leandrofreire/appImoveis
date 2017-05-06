@@ -3,6 +3,9 @@
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">Sistema administrativo</h5>
+        <p class="grey-text text-lighten-4">
+          Sistema de administração da 4Mechanic
+        </p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>
@@ -14,8 +17,7 @@
   </div>
   <div class="footer-copyright">
     <div class="container">
-    © 2014 Copyright Text
-    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    © 2017 4Mechanic
     </div>
   </div>
 </footer>

@@ -36,6 +36,9 @@ Route::get('/admin/login', function(){
 Route::post('admin/login', 'Admin\UsuarioController@login')->name('admin.login');
 
 Route::group(['middleware' => 'auth'], function(){
+
+  Route::get('/admin/login/sair', 'Admin\UsuarioController@sair')->name('admin.sair');
+
   Route::get('/admin', function(){
     return view('admin.principal.index');
   })->name('admin.principal');
