@@ -42,4 +42,7 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin', function(){
     return view('admin.principal.index');
   })->name('admin.principal');
+
+  Route::get('/admin/usuarios', 'Admin\UsuarioController@index')->name('admin.usuarios');
+
 });
