@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function(){
-  return view('site.home');
-})->name('site.home');
+Route::get('/','Site\HomeController@index')->name('site.home');
 
 Route::get('/sobre', 'Site\PaginaController@sobre')->name('site.sobre');
 Route::get('/contato', 'Site\PaginaController@contato')->name('site.contato');
 Route::post('/contato/enviar', 'Site\PaginaController@enviarContato')->name('site.contato.enviar');
+
+Route::get('/imovel/{id}/{titulo?}','Site\ImovelController@index')->name('site.imovel');
 
 Route::get('/imovel/{id}/{titulo?}', function(){
   return view('site.imovel');
