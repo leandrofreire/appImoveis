@@ -53,4 +53,12 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/usuarios/deletar/{id}',
   'Admin\UsuarioController@deletar')->name('admin.usuarios.deletar');
 
+  //Crud paginas
+  Route::get('/admin/paginas',
+  'Admin\PaginaController@index')->name('admin.paginas');
+  Route::get('/admin/paginas/editar/{id}',
+  'Admin\PaginaController@editar')->name('admin.paginas.editar');
+  Route::put('/admin/paginas/atualizar/{id}',
+  'Admin\PaginaController@editar')->name('admin.paginas.atualizar');
+
 });
