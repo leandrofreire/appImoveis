@@ -15,4 +15,16 @@ class PaginaController extends Controller
 
       return view('site.sobre', compact('pagina'));
     }
+
+    public function contato()
+    {
+      // retorna a primeira pagina sobre encontrada
+      $pagina = Pagina::where('tipo','=','contato')->first();
+
+      return view('site.contato', compact('pagina'));
+    }
+    public function enviarContato(Request $request)
+    {
+      dd($request);
+    }
 }
