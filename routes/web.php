@@ -85,4 +85,17 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/cidades/deletar/{id}',
   'Admin\CidadeController@deletar')->name('admin.cidades.deletar');
 
+  // Crud dos imoveis
+  Route::get('/admin/imoveis', 'Admin\ImovelController@index')->name('admin.imoveis');
+  Route::get('/admin/imoveis/adicionar',
+  'Admin\ImovelController@adicionar')->name('admin.imoveis.adicionar');
+  Route::post('/admin/imoveis/salvar',
+  'Admin\ImovelController@salvar')->name('admin.imoveis.salvar');
+  Route::get('/admin/imoveis/editar/{id}',
+  'Admin\ImovelController@editar')->name('admin.imoveis.editar');
+  Route::put('/admin/imoveis/atualizar/{id}',
+  'Admin\ImovelController@atualizar')->name('admin.imoveis.atualizar');
+  Route::get('/admin/imoveis/deletar/{id}',
+  'Admin\ImovelController@deletar')->name('admin.imoveis.deletar');
+
 });
