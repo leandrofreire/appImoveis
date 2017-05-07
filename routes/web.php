@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function(){
   Route::put('/admin/paginas/atualizar/{id}',
   'Admin\PaginaController@atualizar')->name('admin.paginas.atualizar');
 
-  // Crud do tipo de empesa
+  // Crud do tipo de empresa
   Route::get('/admin/tipo', 'Admin\TipoController@index')->name('admin.tipos');
   Route::get('/admin/tipos/adicionar',
   'Admin\TipoController@adicionar')->name('admin.tipos.adicionar');
@@ -71,5 +71,18 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\TipoController@atualizar')->name('admin.tipos.atualizar');
   Route::get('/admin/tipos/deletar/{id}',
   'Admin\TipoController@deletar')->name('admin.tipos.deletar');
+
+  // Crud das cidades
+  Route::get('/admin/cidades', 'Admin\CidadeController@index')->name('admin.cidades');
+  Route::get('/admin/cidades/adicionar',
+  'Admin\CidadeController@adicionar')->name('admin.cidades.adicionar');
+  Route::post('/admin/cidades/salvar',
+  'Admin\CidadeController@salvar')->name('admin.cidades.salvar');
+  Route::get('/admin/cidades/editar/{id}',
+  'Admin\CidadeController@editar')->name('admin.cidades.editar');
+  Route::put('/admin/cidades/atualizar/{id}',
+  'Admin\CidadeController@atualizar')->name('admin.cidades.atualizar');
+  Route::get('/admin/cidades/deletar/{id}',
+  'Admin\CidadeController@deletar')->name('admin.cidades.deletar');
 
 });
