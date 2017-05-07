@@ -19,7 +19,7 @@ class CreatePaginasTable extends Migration
             $table->string('descricao');
             $table->text('texto');
             $table->string('imagem')->nullable();//Esse campo pode ser null
-            $table->string('mapa')->nullable();//Esse campo pode ser null
+            $table->textarea('mapa')->nullable();//Esse campo pode ser null
             $table->string('email')->nullable();//Esse campo pode ser null
             $table->string('tipo');
             $table->timestamps();
