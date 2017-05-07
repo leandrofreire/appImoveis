@@ -59,6 +59,6 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/paginas/editar/{id}',
   'Admin\PaginaController@editar')->name('admin.paginas.editar');
   Route::put('/admin/paginas/atualizar/{id}',
-  'Admin\PaginaController@editar')->name('admin.paginas.atualizar');
+  'Admin\PaginaController@atualizar')->name('admin.paginas.atualizar');
 
 });

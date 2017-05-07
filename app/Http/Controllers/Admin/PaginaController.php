@@ -20,6 +20,42 @@ class PaginaController extends Controller
     }
     public function atualizar(Request $request,$id)
     {
+      $dados = $request->all();
+      $pagina = Pagina::find($id);
+      $pagina->titulo = trim($dados['titulo']); // O trim trata os dados limpando os espaços
+      $pagina->descricao = trim($dados['descricao']);
+      $pagina->texto = trim($dados['texto']);
 
+      if(isset($dados['email'])){
+        $pagina->email = trim($dados['email']);
+      }
+      if(isset($dados['mapa']) && trim($dados['mapa']) != ''){
+        $pagina->mapa = trim($dados['mapa']);
+      }else{
+        $pagina->mapa = null;
+      }
+      //Tratamento da image2wbmp
+      //Recupera a imagem
+      $file = $request->file('imagem');
+      //Verifica se enviou a img
+      if($file){
+        //Cria um nome randomico entre 11111 e 99999
+        $rand = rand(11111,99999);
+        //Passa o caminho aonde salvar
+        $diretorio = "img/paginas/".$id."/";
+        //Pega a extensão
+        $ext = $file->guessClientExtension();
+        //Contatena o nome
+        $nomeArquivo = "_img_".$rand.".".$ext;
+        $file->move($diretorio, $nomeArquivo);
+        //Salva no banco de dados
+        $pagina->imagem = $diretorio.'/'.$nomeArquivo;
+      }
+      $pagina->update();
+      \Session::flash('mensagem', [
+        'msg'=> 'Página atualizada com sucesso',
+        'class'=> 'green white-text'
+      ]);
+      return redirect()->route('admin.paginas');
     }
 }
