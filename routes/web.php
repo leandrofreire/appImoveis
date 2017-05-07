@@ -98,4 +98,17 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/imoveis/deletar/{id}',
   'Admin\ImovelController@deletar')->name('admin.imoveis.deletar');
 
+  // Crud da galeria
+  Route::get('/admin/galerias/{id}', 'Admin\GaleriaController@index')->name('admin.galerias');
+  Route::get('/admin/galerias/adicionar/{id}',
+  'Admin\GaleriaController@adicionar')->name('admin.galerias.adicionar');
+  Route::post('/admin/galerias/salvar/{id}',
+  'Admin\GaleriaController@salvar')->name('admin.galerias.salvar');
+  Route::get('/admin/galerias/editar/{id}',
+  'Admin\GaleriaController@editar')->name('admin.galerias.editar');
+  Route::put('/admin/galerias/atualizar/{id}',
+  'Admin\GaleriaController@atualizar')->name('admin.galerias.atualizar');
+  Route::get('/admin/galerias/deletar/{id}',
+  'Admin\GaleriaController@deletar')->name('admin.galerias.deletar');
+
 });
