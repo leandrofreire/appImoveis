@@ -26,11 +26,11 @@
 </div>
 
 <div class="input-field col s12">
-  <select class="status" name="status">
+  <select name="status">
     <option value="aluga" {{(isset($registro->aluga)
       && $registro->status == 'aluga' ? 'selected' : '')}}>Aluga
     </option>
-    <option value="aluga" {{(isset($registro->vende)
+    <option value="vende" {{(isset($registro->vende)
       && $registro->status == 'vende' ? 'selected' : '')}}>Vende
     </option>
   </select>
@@ -41,7 +41,7 @@
   <select name="tipo_id">
     @foreach($tipos as $tipo)
     <option value="{{ $tipo->id }}" {{(isset($registro->tipo_id)
-      && $registro->status == 'aluga' ? 'selected' :)}}>Aluga
+      && $registro->status == 'aluga' ? 'selected' : '')}}>Aluga
     </option>
     <option value="aluga" {{(isset($registro->vende)
       && $registro->tipo_id == $tipo->id ? 'selected' : '')}}>{{ $tipo->titulo }}
@@ -55,7 +55,7 @@
   <select name="tipo_id">
     @foreach($cidades as $cidade)
     <option value="{{ $cidade->id }}" {{(isset($registro->cidade_id)
-      && $registro->status == 'aluga' ? 'selected' :)}}>Aluga
+      && $registro->status == 'aluga' ? 'selected' : '')}}>Aluga
     </option>
     <option value="aluga" {{(isset($registro->vende)
       && $registro->cidade_id == $cidade->id ? 'selected' : '')}}>{{ $cidade->titulo }}
@@ -99,14 +99,3 @@
   </select>
   <label>Publicar ?</label>
 </div>
-
-
-
-
-
-
-
-
-
-
-//
