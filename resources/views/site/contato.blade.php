@@ -9,11 +9,22 @@
 
   <div class="divider"></div>
   <div class="row section">
-    <div class="col s12 m7">
-      <img class="responsive-img" src="{{ asset('img/3.jpg') }}" alt="Imagem" />
+    <div class="col s12 m6">
+      @if(isset($pagina->mapa))
+        <div class="video-container">
+          {!! $pagina->mapa !!}
+        </div>
+      @else
+        <img class="responsive-img" src="{{ asset($pagina->imagem) }}" alt="Imagem" />
+      @endif
     </div>
-    <div class="col s12 m5">
-      <form class="col s12" action="index.html" method="post">
+    <div class="col s12 m6">
+      <h4>{{ $pagina->titulo }}</h4>
+      <blockquote>
+        {{ $pagina->descricao }}
+      </blockquote>
+      <form class="col s12" action="{{ route('site.contato.enviar') }}" method="post">
+        {{ csrf_field() }}
         <div class="input-field">
           <input type="text" name="nome" class="validate" value="">
           <label for="">Nome</label>
@@ -28,7 +39,6 @@
         </div>
         <button class="btn blue">Enviar</button>
       </form>
-    </div>
   </div>
 </div>
 @endsection
