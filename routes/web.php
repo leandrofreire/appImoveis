@@ -59,4 +59,17 @@ Route::group(['middleware' => 'auth'], function(){
   Route::put('/admin/paginas/atualizar/{id}',
   'Admin\PaginaController@atualizar')->name('admin.paginas.atualizar');
 
+  // Crud do tipo de empesa
+  Route::get('/admin/tipo', 'Admin\TipoController@index')->name('admin.tipos');
+  Route::get('/admin/tipos/adicionar',
+  'Admin\TipoController@adicionar')->name('admin.tipos.adicionar');
+  Route::post('/admin/tipos/salvar',
+  'Admin\TipoController@salvar')->name('admin.tipos.salvar');
+  Route::get('/admin/tipos/editar/{id}',
+  'Admin\TipoController@editar')->name('admin.tipos.editar');
+  Route::put('/admin/tipos/atualizar/{id}',
+  'Admin\TipoController@atualizar')->name('admin.tipos.atualizar');
+  Route::get('/admin/tipos/deletar/{id}',
+  'Admin\TipoController@deletar')->name('admin.tipos.deletar');
+
 });
