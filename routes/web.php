@@ -107,4 +107,17 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/galerias/deletar/{id}',
   'Admin\GaleriaController@deletar')->name('admin.galerias.deletar');
 
+  // Crud do slide
+  Route::get('/admin/slides', 'Admin\SlideController@index')->name('admin.slides');
+  Route::get('/admin/slides/adicionar',
+  'Admin\SlideController@adicionar')->name('admin.slides.adicionar');
+  Route::post('/admin/slides/salvar',
+  'Admin\SlideController@salvar')->name('admin.slides.salvar');
+  Route::get('/admin/slides/editar/{id}',
+  'Admin\SlideController@editar')->name('admin.slides.editar');
+  Route::put('/admin/slides/atualizar/{id}',
+  'Admin\SlideController@atualizar')->name('admin.slides.atualizar');
+  Route::get('/admin/slides/deletar/{id}',
+  'Admin\SlideController@deletar')->name('admin.slides.deletar');
+
 });
