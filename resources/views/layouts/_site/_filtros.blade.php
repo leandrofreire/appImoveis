@@ -41,17 +41,6 @@
     <div class="input-field col s12 m4">
       <select class="" name="">
         <option value="1">Até R$500,00</option>
-        <option value="2">R$500,00 até R$1.000,00</option>
-        <option value="3">R$1.000,00 até R$5.000,00</option>
-        <option value="4">R$5.000,00 até R$10.000,00</option>
-        <option value="2">R$10.000,00 até R$50.000,00</option>
-        <option value="2">R$50.000,00 até R$100.000,00</option>
-        <option value="2">R$100.000,00 até R$200.000,00</option>
-        <option value="2">R$200.000,00 até R$300.000,00</option>
-        <option value="2">R$300.000,00 até R$400.000,00</option>
-        <option value="2">R$400.000,00 até R$500.000,00</option>
-        <option value="2">R$500.000,00 até R$1.000.000,00</option>
-        <option value="2">Acima de R$1.000.000,00</option>
       </select>
       <label>Valor</label>
     </div>
