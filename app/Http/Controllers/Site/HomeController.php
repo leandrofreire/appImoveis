@@ -54,6 +54,13 @@ class HomeController extends Controller
       ];
       $numDorm = $busca['dormitorios'];
 
+      $testeValor = [
+      ['valor','>=', 0],
+      ['valor','<=', 500],
+      ['valor','>=', 500],['valor','<=',1.000],
+      ];
+      $numValor = $busca['valor'];
+
 
       if($busca['bairro'] != ''){
         $testeBairro = [
@@ -71,6 +78,7 @@ class HomeController extends Controller
       ->where($testeCidade)
       ->where([$testeDorm[$numDorm]])
       ->where($testeBairro)
+      ->where([$testeValor[$numValor]])
       ->orderBy('id','desc')->get();
       return view('site.busca', compact('busca', 'imoveis','paginacao','tipos','cidades'));
     }

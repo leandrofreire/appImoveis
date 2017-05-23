@@ -41,6 +41,15 @@
       </select>
       <label>Dormitórios</label>
     </div>
+    <!-- Filtro por valores -->
+    <div class="input-field col s12 m4">
+      <select class="" name="valor">
+        <option {{ isset($busca['valor']) && $busca['valor'] == 0 ? 'selected' : '' }} value="0">Qualquer valor</option>
+        <option {{ isset($busca['valor']) && $busca['valor'] == 1 ? 'selected' : '' }} value="1">Até R$500.00</option>
+        <option {{ isset($busca['valor']) && $busca['valor'] == 2 ? 'selected' : '' }} value="2">500.00 até R$1000.00</option>
+      </select>
+      <label>Valor</label>
+    </div>
     <!-- Filtro por bairro-->
     <div class="input-field col s12 m3">
       <input type="text" class="validate" name="bairro" value="{{ isset($busca['bairro']) ? $busca['bairro'] : '' }}">
