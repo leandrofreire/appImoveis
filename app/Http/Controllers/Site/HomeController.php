@@ -24,12 +24,24 @@ class HomeController extends Controller
     //Método de busca (filtro)
     public function busca(Request $request){
       $busca = $request->all();
-      $imoveis = Imovel::where('publicar','=','sim')->orderBy('id','desc')->get();
+
       $paginacao = false;
       $tipos = Tipo::orderBy('titulo')->get();
       $cidades = Cidade::orderBy('nome')->get();
 
-      dd($busca);
+      if($busca['status'] == 'todos'){
+        $testeStatus = [
+          ['status','<>',null]
+        ];
+      }else{
+        $testeStatus = [
+          ['status','=',$busca['status']]
+        ];
+      }
+
+      $imoveis = Imovel::where('publicar','=','sim')
+      ->where($testeStatus)
+      ->orderBy('id','desc')->get();
       return view('site.busca', compact('busca', 'imoveis','paginacao','tipos','cidades'));
     }
 }
