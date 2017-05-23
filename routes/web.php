@@ -18,6 +18,7 @@ Route::get('/contato', 'Site\PaginaController@contato')->name('site.contato');
 Route::post('/contato/enviar', 'Site\PaginaController@enviarContato')->name('site.contato.enviar');
 
 Route::get('/imovel/{id}/{titulo?}','Site\ImovelController@index')->name('site.imovel');
+Route::get('/busca','Site\HomeController@busca')->name('site.busca');
 
 //Login - admin system
 Route::get('/admin/login', function(){
