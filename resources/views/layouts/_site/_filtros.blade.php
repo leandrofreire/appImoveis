@@ -33,25 +33,13 @@
     <!-- Filtro por quantidade de quartos -->
     <div class="input-field col s6 m3">
       <select class="" name="dormitorios">
-        <option {{ isset($busca['dormitorios']) && $busca['dormitorios'] == 'todos' ? 'selected' : '' }} value="todos">Todos</option>
+        <option {{ isset($busca['dormitorios']) && $busca['dormitorios'] == 0 ? 'selected' : '' }} value="0">Todos</option>
         <option {{ isset($busca['dormitorios']) && $busca['dormitorios'] == 1 ? 'selected' : '' }} value="1">1</option>
         <option {{ isset($busca['dormitorios']) && $busca['dormitorios'] == 2 ? 'selected' : '' }} value="2">2</option>
         <option {{ isset($busca['dormitorios']) && $busca['dormitorios'] == 3 ? 'selected' : '' }} value="3">3</option>
         <option {{ isset($busca['dormitorios']) && $busca['dormitorios'] == 4 ? 'selected' : '' }} value="4">4</option>
       </select>
       <label>Dormitórios</label>
-    </div>
-    <!-- Filtro por valores -->
-    <div class="input-field col s12 m4">
-      <select class="" name="valor">
-        <option {{ isset($busca['valor']) && $busca['valor'] == 'todos' ? 'selected' : '' }} value="todos">Todos os valores</option>
-        <option {{ isset($busca['valor']) && $busca['valor'] == 1 ? 'selected' : '' }} value="1">R$500,00 até R$1.000,00</option>
-        <option {{ isset($busca['valor']) && $busca['valor'] == 2 ? 'selected' : '' }} value="2">R$1.000,00 até R$5.000,00</option>
-        <option {{ isset($busca['valor']) && $busca['valor'] == 3 ? 'selected' : '' }} value="3">R$5.000,00 até R$10.000,00</option>
-        <option {{ isset($busca['valor']) && $busca['valor'] == 4 ? 'selected' : '' }} value="4">R$10.000,00 até R$50.000,00</option>
-        <option {{ isset($busca['valor']) && $busca['valor'] == 5 ? 'selected' : '' }} value="5">R$50.000,00 até R$100.000,00</option>
-      </select>
-      <label>Valor</label>
     </div>
     <!-- Filtro por bairro-->
     <div class="input-field col s12 m3">

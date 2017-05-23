@@ -17,7 +17,7 @@
       <div class="card-content">
         <p><b class="deep-orange-text darken-1">{{ $imovel->status }}</b></p>
         <p><b>{{ $imovel->titulo }}</b></p>
-        <p><b>{{ $imovel->descricao }}</b></p>
+        <p size="30"><b>{{ $imovel->descricao }}</b></p>
         <p><b>R$: {{ number_format($imovel->valor,2,",",".") }}</b></p>
       </div>
       <div class="card-action">

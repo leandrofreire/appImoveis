@@ -30,17 +30,47 @@ class HomeController extends Controller
       $cidades = Cidade::orderBy('nome')->get();
 
       if($busca['status'] == 'todos'){
-        $testeStatus = [
-          ['status','<>',null]
+        $testeStatus = [['status','<>',null]];
+      }else{
+        $testeStatus = [['status','=',$busca['status']]];
+      }
+      if($busca['tipo_id'] == 'todos'){
+        $testeTipo = [['tipo_id','<>',null]];
+      }else{
+        $testeTipo = [['tipo_id','=',$busca['tipo_id']]];
+      }
+      if($busca['cidade_id'] == 'todos'){
+        $testeCidade = [['cidade_id','<>',null]];
+      }else{
+        $testeCidade = [['cidade_id','=',$busca['cidade_id']]];
+      }
+
+      $testeDorm = [
+        ['dormitorios','>=', 0],
+        ['dormitorios','=', 1],
+        ['dormitorios','=', 2],
+        ['dormitorios','=', 3],
+        ['dormitorios','>', 3]
+      ];
+      $numDorm = $busca['dormitorios'];
+
+
+      if($busca['bairro'] != ''){
+        $testeBairro = [
+          ['endereco','like','%'.$busca['bairro'].'%']
         ];
       }else{
-        $testeStatus = [
-          ['status','=',$busca['status']]
+        $testeBairro = [
+          ['endereco','<>',null]
         ];
       }
 
       $imoveis = Imovel::where('publicar','=','sim')
       ->where($testeStatus)
+      ->where($testeTipo)
+      ->where($testeCidade)
+      ->where([$testeDorm[$numDorm]])
+      ->where($testeBairro)
       ->orderBy('id','desc')->get();
       return view('site.busca', compact('busca', 'imoveis','paginacao','tipos','cidades'));
     }
