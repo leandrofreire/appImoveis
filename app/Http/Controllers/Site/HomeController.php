@@ -55,9 +55,9 @@ class HomeController extends Controller
       $numDorm = $busca['dormitorios'];
 
       $testeValor = [
-      ['valor','>=', 0],
-      ['valor','<=', 500],
-      ['valor','>=', 500],['valor','<=',1.000],
+        ['valor','>=', 0],
+        ['valor','<=', 500],
+        ['valor','>=', 500],['valor','<=',1.000],
       ];
       $numValor = $busca['valor'];
 
