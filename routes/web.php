@@ -17,7 +17,7 @@ Route::get('/sobre', 'Site\PaginaController@sobre')->name('site.sobre');
 Route::get('/contato', 'Site\PaginaController@contato')->name('site.contato');
 Route::post('/contato/enviar', 'Site\PaginaController@enviarContato')->name('site.contato.enviar');
 
-Route::get('/imovel/{id}/{titulo?}','Site\ImovelController@index')->name('site.imovel');
+Route::get('/oficina/{id}/{titulo?}','Site\OficinaController@index')->name('site.oficina');
 Route::get('/busca','Site\HomeController@busca')->name('site.busca');
 
 //Login - admin system
@@ -82,18 +82,18 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/cidades/deletar/{id}',
   'Admin\CidadeController@deletar')->name('admin.cidades.deletar');
 
-  // Crud dos imoveis
-  Route::get('/admin/imoveis', 'Admin\ImovelController@index')->name('admin.imoveis');
-  Route::get('/admin/imoveis/adicionar',
-  'Admin\ImovelController@adicionar')->name('admin.imoveis.adicionar');
-  Route::post('/admin/imoveis/salvar',
-  'Admin\ImovelController@salvar')->name('admin.imoveis.salvar');
-  Route::get('/admin/imoveis/editar/{id}',
-  'Admin\ImovelController@editar')->name('admin.imoveis.editar');
-  Route::put('/admin/imoveis/atualizar/{id}',
-  'Admin\ImovelController@atualizar')->name('admin.imoveis.atualizar');
-  Route::get('/admin/imoveis/deletar/{id}',
-  'Admin\ImovelController@deletar')->name('admin.imoveis.deletar');
+  // Crud dos oficinas
+  Route::get('/admin/oficinas', 'Admin\OficinaController@index')->name('admin.oficinas');
+  Route::get('/admin/oficinas/adicionar',
+  'Admin\OficinaController@adicionar')->name('admin.oficinas.adicionar');
+  Route::post('/admin/oficinas/salvar',
+  'Admin\OficinaController@salvar')->name('admin.oficinas.salvar');
+  Route::get('/admin/oficinas/editar/{id}',
+  'Admin\OficinaController@editar')->name('admin.oficinas.editar');
+  Route::put('/admin/oficinas/atualizar/{id}',
+  'Admin\OficinaController@atualizar')->name('admin.oficinas.atualizar');
+  Route::get('/admin/oficinas/deletar/{id}',
+  'Admin\OficinaController@deletar')->name('admin.oficinas.deletar');
 
   // Crud da galeria
   Route::get('/admin/galerias/{id}', 'Admin\GaleriaController@index')->name('admin.galerias');

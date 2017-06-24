@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Imovel;
+use App\oficina;
 use App\Slide;
 use App\Tipo;
 use App\Cidade;
@@ -13,13 +13,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-      $imoveis = Imovel::where('publicar','=','sim')->orderBy('id','desc')->paginate(20);
+      $oficinas = oficina::where('publicar','=','sim')->orderBy('id','desc')->paginate(20);
       $slides = Slide::where('publicado','=','sim')->orderBy('ordem')->get();
       $direcaoImagem = ['center-align', 'left-align', 'right-align'];
       $paginacao = true;
       $tipos = Tipo::orderBy('titulo')->get();
       $cidades = Cidade::orderBy('nome')->get();
-      return view('site.home', compact('imoveis','slides','direcaoImagem','paginacao','tipos','cidades'));
+      return view('site.home', compact('oficinas','slides','direcaoImagem','paginacao','tipos','cidades'));
     }
     //Método de busca (filtro)
     public function busca(Request $request){
@@ -29,11 +29,7 @@ class HomeController extends Controller
       $tipos = Tipo::orderBy('titulo')->get();
       $cidades = Cidade::orderBy('nome')->get();
 
-      if($busca['status'] == 'todos'){
-        $testeStatus = [['status','<>',null]];
-      }else{
-        $testeStatus = [['status','=',$busca['status']]];
-      }
+
       if($busca['tipo_id'] == 'todos'){
         $testeTipo = [['tipo_id','<>',null]];
       }else{
@@ -44,22 +40,6 @@ class HomeController extends Controller
       }else{
         $testeCidade = [['cidade_id','=',$busca['cidade_id']]];
       }
-
-      $testeDorm = [
-        ['dormitorios','>=', 0],
-        ['dormitorios','=', 1],
-        ['dormitorios','=', 2],
-        ['dormitorios','=', 3],
-        ['dormitorios','>', 3]
-      ];
-      $numDorm = $busca['dormitorios'];
-
-      $testeValor = [
-        ['valor','>=', 0],
-        ['valor','<=', 500],
-        ['valor','>=', 500],['valor','<=',1.000],
-      ];
-      $numValor = $busca['valor'];
 
 
       if($busca['bairro'] != ''){
@@ -72,14 +52,11 @@ class HomeController extends Controller
         ];
       }
 
-      $imoveis = Imovel::where('publicar','=','sim')
-      ->where($testeStatus)
+      $oficinas = oficina::where('publicar','=','sim')
       ->where($testeTipo)
       ->where($testeCidade)
-      ->where([$testeDorm[$numDorm]])
       ->where($testeBairro)
-      ->where([$testeValor[$numValor]])
       ->orderBy('id','desc')->get();
-      return view('site.busca', compact('busca', 'imoveis','paginacao','tipos','cidades'));
+      return view('site.busca', compact('busca', 'oficinas','paginacao','tipos','cidades'));
     }
 }

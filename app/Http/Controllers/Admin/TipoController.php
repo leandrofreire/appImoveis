@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Tipo;
-use App\Imovel;
+use App\Oficina;
 
 class TipoController extends Controller
 {
@@ -51,17 +51,17 @@ class TipoController extends Controller
   public function deletar($id)
   {
     /*
-    Teste para verificar se existe imovel
+    Teste para verificar se existe oficina
     Relacionado a essa cidade que quer deletar
     */
-    if(Imovel::where('tipo_id','=',$id)->count()){
+    if(Oficina::where('tipo_id','=',$id)->count()){
 
-      $msg = "Não é possível deletar esse tipo de imóvel!
-      Esses imóveis(";
-      $imoveis = Imovel::where('tipo_id','=',$id)->get();
+      $msg = "Não é possível deletar esse tipo de oficina!
+      Esses Oficinas(";
+      $oficinas = Oficina::where('tipo_id','=',$id)->get();
 
-      foreach ($imoveis as $imovel) {
-        $msg .= "id:".$imovel->id." ";
+      foreach ($oficinas as $oficina) {
+        $msg .= "id:".$oficina->id." ";
       }
       $msg.= ") estão relacionados.";
 

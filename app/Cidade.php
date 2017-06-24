@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cidade extends Model
 {
   //Relacionamento das tabelas 1 pra muitos
-  public function imoveis()
+  public function oficinas()
   {
                     //Id da tabela pra relacionar
-    return $this->hasMany('App\Imovel','cidade_id');
+    return $this->hasMany('App\oficina','cidade_id');
   }
 }

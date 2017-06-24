@@ -25,20 +25,12 @@
 </div>
 
 <div class="input-field">
-    <select name="status">
-        <option value="aluga" {{(isset($registro->status) && $registro->status == 'aluga'  ? 'selected' : '')}}>Aluga</option>
-        <option value="vende" {{(isset($registro->status) && $registro->status == 'vende'  ? 'selected' : '')}}>Vende</option>
-    </select>
-    <label>Status</label>
-</div>
-
-<div class="input-field">
     <select name="tipo_id">
         @foreach($tipos as $tipo)
             <option value="{{ $tipo->id }}" {{(isset($registro->tipo_id) && $registro->tipo_id == $tipo->id  ? 'selected' : '')}}>{{ $tipo->titulo }}</option>
         @endforeach
     </select>
-    <label>Tipo de Imóvel</label>
+    <label>Tipo de oficina</label>
 </div>
 
 <div class="input-field">
@@ -60,19 +52,11 @@
     <label>Cidade</label>
 </div>
 
-<div class="input-field">
-    <input type="text" name="valor" class="validate" value="{{(isset($registro->valor) ? $registro->valor : '')}}">
-    <label>Valor (Ex: 234.90)</label>
-</div>
 
-<div class="input-field">
-    <input type="text" name="dormitorios" class="validate" value="{{(isset($registro->dormitorios) ? $registro->dormitorios : '')}}">
-    <label>Dormitórios (Ex: 3)</label>
-</div>
 
 <div class="input-field">
     <input type="text" name="detalhes" class="validate" value="{{(isset($registro->detalhes) ? $registro->detalhes : '')}}">
-    <label>Detalhes (Ex: Sacada: 1 - Banheiro: 2 - Sala de Jantar - Churrasqueira)</label>
+    <label>Detalhes sobre a oficina</label>
 </div>
 
 <div class="input-field">

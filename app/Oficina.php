@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Imovel extends Model
+class oficina extends Model
 {
     // Define o nome da tabela
-    protected $table = "imoveis";
+    protected $table = "oficinas";
 
     //Relacionamento das tabelas muitos pra 1
     public function tipo()
@@ -25,6 +25,6 @@ class Imovel extends Model
     // Relacionamento das tabelas 1 pra muitos
     public function galeria()
     {
-      return $this->hasMany('App\Galeria', 'imovel_id');
+      return $this->hasMany('App\Galeria', 'oficina_id');
     }
 }

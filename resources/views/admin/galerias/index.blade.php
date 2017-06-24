@@ -10,7 +10,7 @@
         <div class="nav-wrapper green">
           <div class="col s12">
             <a href="{{ route('admin.principal') }}" class="breadcrumb">Inicio</a>
-            <a href="{{ route('admin.imoveis') }}" class="breadcrumb">Imoveis</a>
+            <a href="{{ route('admin.oficinas') }}" class="breadcrumb">oficinas</a>
             <a class="breadcrumb">Galeria de imagens</a>
           </div>
         </div>
@@ -50,7 +50,7 @@
       </table>
     </div>
     <div class="row">
-      <a class="btn blue" href="{{ route('admin.galerias.adicionar', $imovel->id) }}">Adicionar</a>
+      <a class="btn blue" href="{{ route('admin.galerias.adicionar', $oficina->id) }}">Adicionar</a>
     </div>
 </div>
 @endsection
