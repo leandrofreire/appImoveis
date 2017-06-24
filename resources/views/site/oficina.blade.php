@@ -39,14 +39,10 @@
       <blockquote>
         {{ $oficina->descricao }}
       </blockquote>
-      <p><b>Código:</b>{{ $oficina->id}}</p>
-      <p><b>Status:</b>{{ $oficina->status }}</p>
       <p><b>Tipo:</b> {{ $oficina->tipo->titulo }}</p>
-      <p><b>Dormitórios:</b> {{ $oficina->dormitorios }}</p>
       <p><b>Endereço:</b> {{ $oficina->endereco }}</p>
       <p><b>Cep:</b>{{ $oficina->cep }}</p>
       <p><b>Cidade:</b>{{ $oficina->cidade->nome }}</p>
-      <p><b>Valor:</b> R${{ number_format($oficina->valor,2,",",".") }}</p>
       <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato</a>
     </div>
   </div>
