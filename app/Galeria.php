@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Galeria extends Model
 {
    //Relacionamento de tabelas
-    public function imovel()
+    public function oficina()
     {
-      return $this->belongsTo('App\Imovel','imovel_id');
+      return $this->belongsTo('App\oficina','oficina_id');
     }
 }

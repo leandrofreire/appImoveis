@@ -6,16 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Imovel;
+use App\Oficina;
 use App\Tipo;
 use App\Cidade;
 
-class ImovelController extends Controller
+class OficinaController extends Controller
 {
     public function index()
     {
-        $registros = Imovel::all();
-        return view('admin.imoveis.index',compact('registros'));
+        $registros = Oficina::all();
+        return view('admin.oficinas.index',compact('registros'));
     }
 
     public function adicionar()
@@ -24,22 +24,18 @@ class ImovelController extends Controller
         $tipos = Tipo::all();
         $cidades = Cidade::all();
 
-        return view('admin.imoveis.adicionar',compact('tipos','cidades'));
+        return view('admin.oficinas.adicionar',compact('tipos','cidades'));
     }
 
     public function salvar(Request $request)
     {
         $dados = $request->all();
 
-        $registro = new Imovel();
+        $registro = new Oficina();
         $registro->titulo = $dados['titulo'];
         $registro->descricao = $dados['descricao'];
-        $registro->status = $dados['status'];
-        $registro->status= $dados['status'];
         $registro->endereco= $dados['endereco'];
         $registro->cep= $dados['cep'];
-        $registro->valor= $dados['valor'];
-        $registro->dormitorios= $dados['dormitorios'];
         $registro->detalhes= $dados['detalhes'];
         $registro->visualizacoes= 0;
         $registro->publicar= $dados['publicar'];
@@ -55,7 +51,7 @@ class ImovelController extends Controller
         $file = $request->file('imagem');
     	if($file){
     		$rand = rand(11111,99999);
-    		$diretorio = "img/imoveis/".str_slug($dados['titulo'],'_')."/";
+    		$diretorio = "img/oficinas/".str_slug($dados['titulo'],'_')."/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
@@ -67,34 +63,30 @@ class ImovelController extends Controller
 
         \Session::flash('mensagem',['msg'=>'Registro criado com sucesso!','class'=>'green white-text']);
 
-        return redirect()->route('admin.imoveis');
+        return redirect()->route('admin.oficinas');
 
     }
 
     public function editar($id)
     {
-        $registro = Imovel::find($id);
+        $registro = Oficina::find($id);
 
         $tipos = Tipo::all();
         $cidades = Cidade::all();
 
-        return view('admin.imoveis.editar',compact('registro','tipos','cidades'));
+        return view('admin.oficinas.editar',compact('registro','tipos','cidades'));
 
     }
 
     public function atualizar(Request $request, $id)
     {
-        $registro = Imovel::find($id);
+        $registro = Oficina::find($id);
         $dados = $request->all();
 
         $registro->titulo = $dados['titulo'];
         $registro->descricao = $dados['descricao'];
-        $registro->status = $dados['status'];
-        $registro->status= $dados['status'];
         $registro->endereco= $dados['endereco'];
         $registro->cep= $dados['cep'];
-        $registro->valor= $dados['valor'];
-        $registro->dormitorios= $dados['dormitorios'];
         $registro->detalhes= $dados['detalhes'];
 
         $registro->publicar= $dados['publicar'];
@@ -110,7 +102,7 @@ class ImovelController extends Controller
         $file = $request->file('imagem');
     	if($file){
     		$rand = rand(11111,99999);
-    		$diretorio = "img/imoveis/".str_slug($dados['titulo'],'_')."/";
+    		$diretorio = "img/oficinas/".str_slug($dados['titulo'],'_')."/";
     		$ext = $file->guessClientExtension();
     		$nomeArquivo = "_img_".$rand.".".$ext;
     		$file->move($diretorio,$nomeArquivo);
@@ -122,16 +114,16 @@ class ImovelController extends Controller
 
         \Session::flash('mensagem',['msg'=>'Registro atualizado com sucesso!','class'=>'green white-text']);
 
-        return redirect()->route('admin.imoveis');
+        return redirect()->route('admin.oficinas');
     }
 
     public function deletar($id)
     {
 
-        Imovel::find($id)->delete();
+        Oficina::find($id)->delete();
 
         \Session::flash('mensagem',['msg'=>'Registro deletado com sucesso!','class'=>'green white-text']);
-        return redirect()->route('admin.imoveis');
+        return redirect()->route('admin.oficinas');
 
     }
 }

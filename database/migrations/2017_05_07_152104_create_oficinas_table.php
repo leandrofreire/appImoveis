@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImoveisTable extends Migration
+class CreateoficinasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateImoveisTable extends Migration
      */
     public function up()
     {
-        Schema::create('imoveis', function (Blueprint $table) {
+        Schema::create('oficinas', function (Blueprint $table) {
             $table->increments('id');
             //Relacionamento de tabela tipo com cidade
             $table->integer('tipo_id')->unsigned();
@@ -25,11 +25,8 @@ class CreateImoveisTable extends Migration
             $table->string('titulo');
             $table->string('descricao');
             $table->string('imagem');
-            $table->enum('status',['vende','aluga']);
             $table->string('endereco');
             $table->string('cep');
-            $table->decimal('valor',6,2);
-            $table->integer('dormitorios');
             $table->string('detalhes');
             $table->text('mapa')->nullable();
             $table->bigInteger('visualizacoes')->default(0);
@@ -46,6 +43,6 @@ class CreateImoveisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imoveis');
+        Schema::dropIfExists('oficinas');
     }
 }

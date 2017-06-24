@@ -19,7 +19,7 @@
           <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">{{ Auth::user()->name }}</a></li>
             <li><a href="{{ route('admin.cidades') }}">Cidades</a></li>
-            <li><a href="{{ route('admin.imoveis') }}">Imoveis</a></li>
+            <li><a href="{{ route('admin.oficinas') }}">Oficinas</a></li>
             <li><a href="{{ route('admin.tipos') }}">Tipos</a></li>
             <li><a href="{{ route('admin.slides') }}">Slides</a></li>
             <li><a href="{{ route('admin.usuarios') }}">Usuarios</a></li>
@@ -37,7 +37,7 @@
           @else
           <li><a href="#">{{ Auth::user()->name }}</a></li>
           <li><a href="{{ route('admin.cidades') }}">Cidades</a></li>
-          <li><a href="{{ route('admin.imoveis') }}">Imoveis</a></li>
+          <li><a href="{{ route('admin.oficinas') }}">Oficinas</a></li>
           <li><a href="{{ route('admin.tipos') }}">Tipos</a></li>
           <li><a href="{{ route('admin.slides') }}">Slides</a></li>
           <li><a href="{{ route('admin.usuarios') }}">Usuarios</a></li>

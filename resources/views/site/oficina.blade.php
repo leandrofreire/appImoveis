@@ -4,13 +4,13 @@
 @section('content')
 <div class="container">
   <div class="row section">
-    <h4 align="center">{{ $imovel->titulo }}</h4>
+    <h4 align="center">{{ $oficina->titulo }}</h4>
     <div class="divider"></div>
   </div>
 
   <div class="row section">
     <div class="col s12 m8">
-      @if($imovel->galeria()->count())
+      @if($oficina->galeria()->count())
       <div class="row">
         <div class="slider">
           <ul class="slides">
@@ -31,34 +31,30 @@
         <button onclick="sliderNext()" class="btn blue">Próxima</button>
       </div>
       @else
-        <img class="responsive-img" src="{{ asset($imovel->imagem) }}" alt="" />
+        <img class="responsive-img" src="{{ asset($oficina->imagem) }}" alt="" />
       @endif
     </div>
     <div class="col s12 m4">
-      <h4>{{ $imovel->titulo }}</h4>
+      <h4>{{ $oficina->titulo }}</h4>
       <blockquote>
-        {{ $imovel->descricao }}
+        {{ $oficina->descricao }}
       </blockquote>
-      <p><b>Código:</b>{{ $imovel->id}}</p>
-      <p><b>Status:</b>{{ $imovel->status }}</p>
-      <p><b>Tipo:</b> {{ $imovel->tipo->titulo }}</p>
-      <p><b>Dormitórios:</b> {{ $imovel->dormitorios }}</p>
-      <p><b>Endereço:</b> {{ $imovel->endereco }}</p>
-      <p><b>Cep:</b>{{ $imovel->cep }}</p>
-      <p><b>Cidade:</b>{{ $imovel->cidade->nome }}</p>
-      <p><b>Valor:</b> R${{ number_format($imovel->valor,2,",",".") }}</p>
+      <p><b>Tipo:</b> {{ $oficina->tipo->titulo }}</p>
+      <p><b>Endereço:</b> {{ $oficina->endereco }}</p>
+      <p><b>Cep:</b>{{ $oficina->cep }}</p>
+      <p><b>Cidade:</b>{{ $oficina->cidade->nome }}</p>
       <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato</a>
     </div>
   </div>
   <div class="row section">
     <div class="col s12 m8">
       <div class="video-container">
-        {!! $imovel->mapa !!}
+        {!! $oficina->mapa !!}
       </div>
     </div>
     <div class="col s12 m4">
       <h4>Detalhes:</h4>
-      <p>{{ $imovel->detalhes }}</p>
+      <p>{{ $oficina->detalhes }}</p>
     </div>
   </div>
 </div>

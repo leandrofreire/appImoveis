@@ -9,8 +9,8 @@
       <div class="nav-wrapper green">
         <div class="col s12">
           <a href="{{ route('admin.principal') }}" class="breadcrumb">Inicio</a>
-          <a href="{{ route('admin.galerias', $imovel->id) }}" class="breadcrumb">Galeria de imagens</a>
-          <a class="breadcrumb">Editar imóvel</a>
+          <a href="{{ route('admin.galerias', $oficina->id) }}" class="breadcrumb">Galeria de imagens</a>
+          <a class="breadcrumb">Editar oficina</a>
         </div>
       </div>
     </nav>
