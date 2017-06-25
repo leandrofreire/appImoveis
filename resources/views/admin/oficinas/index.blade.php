@@ -45,6 +45,7 @@
             <td>
               <a class="btn orange menor" href="{{ route('admin.oficinas.editar', $registro->id) }}">Editar</a>
               <a class="btn green menor" href="{{ route('admin.galerias', $registro->id) }}">Galeria</a>
+              <a class="btn green menor" href="{{ route('admin.servicos', $registro->id) }}">Servicos</a>
               <a class="btn red menor" href="javascript: if(confirm('Deletar esse registro?'))
               { window.location.href = '{{ route('admin.oficinas.deletar', $registro->id) }}' }">Deletar</a>
             </td>
