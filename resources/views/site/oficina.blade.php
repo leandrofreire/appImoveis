@@ -46,6 +46,24 @@
       <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato</a>
     </div>
   </div>
+
+  <div class="row section">
+    <!-- col s = Mobile col m = Desktop -->
+    @foreach($servicos as $servico)
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-content">
+          <p><b class="deep-orange-text darken-1">{{ $servico->titulo }}</b></p>
+          <p><b>R$: {{ number_format($servico->valor,2,",",".") }}</b></p>
+        </div>
+        <div class="card-action">
+          <a href="#">Agendar</a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+
   <div class="row section">
     <div class="col s12 m8">
       <div class="video-container">
