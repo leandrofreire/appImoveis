@@ -12,7 +12,7 @@ class ServicoController extends Controller
     public function index($id)
     {
       $oficina = Oficina::find($id);
-      $registros = $oficina->servico()->orderBy('ordem')->get();
+      $registros = Servico::all();
       return view('admin.servicos.index', compact('registros','oficina'));
     }
     public function adicionar($id)
@@ -24,6 +24,7 @@ class ServicoController extends Controller
     {
       $oficina = Oficina::find($id);
       $dados = $request->all();
+
       $registro = new Servico();
       $registro->titulo = $dados['titulo'];
       $registro->valor = $dados['valor'];

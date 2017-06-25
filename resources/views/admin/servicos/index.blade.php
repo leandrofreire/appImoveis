@@ -30,7 +30,7 @@
           @foreach($registros as $registro)
           <tr>
             <td>{{ $registro->titulo }}</td>
-            <td><b>R$: {{ number_format($oficina->valor,2,",",".") }}</b></td>
+            <td><b>R$: {{ number_format($registro->valor,2,",",".") }}</b></td>
             <td>
               <a class="btn orange" href="{{ route('admin.servicos.editar', $registro->id) }}">Editar</a>
               <a class="btn red" href="javascript: if(confirm('Deletar esse registro?'))

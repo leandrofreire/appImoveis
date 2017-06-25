@@ -27,4 +27,9 @@ class oficina extends Model
     {
       return $this->hasMany('App\Galeria', 'oficina_id');
     }
+    //Relacionamento das tabels 1 para muitos
+    public function servicos()
+    {
+      return $this->hasMany('App\Servico', 'oficina_id');
+    }
 }

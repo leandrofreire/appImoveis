@@ -19,6 +19,7 @@ class CreateServicosTable extends Migration
             $table->foreign('oficina_id')->references('id')->on('oficinas');
             $table->string('titulo');
             $table->decimal('valor',6,2);
+            //$table->string('ordem')->nullable();
             $table->timestamps();
         });
     }
