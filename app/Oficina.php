@@ -30,6 +30,6 @@ class oficina extends Model
     //Relacionamento das tabels 1 para muitos
     public function servicos()
     {
-      return $this->hasMany('App\Servico', 'oficina_id');
+      return $this->hasMany('App\Servico');
     }
 }
