@@ -108,6 +108,19 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/galerias/deletar/{id}',
   'Admin\GaleriaController@deletar')->name('admin.galerias.deletar');
 
+  // Crud dos serviços
+  Route::get('/admin/servicos/{id}', 'Admin\ServicoController@index')->name('admin.servicos');
+  Route::get('/admin/servicos/adicionar/{id}',
+  'Admin\ServicoController@adicionar')->name('admin.servicos.adicionar');
+  Route::post('/admin/servicos/salvar/{id}',
+  'Admin\ServicoController@salvar')->name('admin.servicos.salvar');
+  Route::get('/admin/servicos/editar/{id}',
+  'Admin\ServicoController@editar')->name('admin.servicos.editar');
+  Route::put('/admin/servicos/atualizar/{id}',
+  'Admin\ServicoController@atualizar')->name('admin.servicos.atualizar');
+  Route::get('/admin/servicos/deletar/{id}',
+  'Admin\ServicoController@deletar')->name('admin.servicos.deletar');
+
   // Crud do slide
   Route::get('/admin/slides', 'Admin\SlideController@index')->name('admin.slides');
   Route::get('/admin/slides/adicionar',

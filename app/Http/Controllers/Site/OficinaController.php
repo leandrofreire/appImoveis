@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\oficina;
+use App\Servico;
 
 class OficinaController extends Controller
 {
@@ -13,6 +14,7 @@ class OficinaController extends Controller
       $oficina = oficina::find($id);
       $galeria = $oficina->galeria()->orderBy('ordem')->get();
       $direcaoImagem = ['center-align', 'left-align', 'right-align'];
-      return view('site.oficina', compact('oficina','galeria','direcaoImagem'));
+      $servicos = $oficina->servicos;
+      return view('site.oficina', compact('oficina','galeria','direcaoImagem','servicos'));
     }
 }

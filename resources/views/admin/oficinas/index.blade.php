@@ -22,9 +22,7 @@
           <tr>
             <th>Id</th>
             <th>Titulo</th>
-            <th>Status</th>
             <th>Cidade</th>
-            <th>Valor</th>
             <th>Imagem</th>
             <th>Publicado</th>
             <th>Ação</th>
@@ -35,17 +33,16 @@
           <tr>
             <td>{{ $registro->id }}</td>
             <td>{{ $registro->titulo }}</td>
-            <td>{{ $registro->status }}</td>
             <td>{{ $registro->cidade->nome }}</td>
-            <td>R$ {{ number_format($registro->valor,2,",",".") }}</td>
             <td>
               <img width="100" src="{{ asset($registro->imagem) }}" alt="" />
             </td>
             <td>{{ $registro->publicar }}</td>
-            <td>
-              <a class="btn orange menor" href="{{ route('admin.oficinas.editar', $registro->id) }}">Editar</a>
-              <a class="btn green menor" href="{{ route('admin.galerias', $registro->id) }}">Galeria</a>
-              <a class="btn red menor" href="javascript: if(confirm('Deletar esse registro?'))
+            <td class="">
+              <a class="btn orange" href="{{ route('admin.oficinas.editar', $registro->id) }}">Editar</a>
+              <a class="btn green" href="{{ route('admin.galerias', $registro->id) }}">Galeria</a>
+              <a class="btn green" href="{{ route('admin.servicos', $registro->id) }}">Servicos</a>
+              <a class="btn red" href="javascript: if(confirm('Deletar esse registro?'))
               { window.location.href = '{{ route('admin.oficinas.deletar', $registro->id) }}' }">Deletar</a>
             </td>
           </tr>
