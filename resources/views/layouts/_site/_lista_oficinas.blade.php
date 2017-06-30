@@ -18,7 +18,6 @@
         <p><b class="deep-orange-text darken-1">{{ $oficina->status }}</b></p>
         <p><b>{{ $oficina->titulo }}</b></p>
         <p size="30"><b>{{ $oficina->descricao }}</b></p>
-        <p><b>R$: {{ number_format($oficina->valor,2,",",".") }}</b></p>
       </div>
       <div class="card-action">
         <a href="{{ route('site.oficina',[$oficina->id,str_slug($oficina->titulo,'_')]) }}">Ver Mais</a>
