@@ -15,6 +15,13 @@ class OficinaController extends Controller
       $galeria = $oficina->galeria()->orderBy('ordem')->get();
       $direcaoImagem = ['center-align', 'left-align', 'right-align'];
       $servicos = $oficina->servicos;
-      return view('site.oficina', compact('oficina','galeria','direcaoImagem','servicos'));
+
+      $seo = [
+        'titulo'=>$oficina->titulo,
+        'descricao'=>$oficina->descricao,
+        'imagem'=> asset($oficina->imagem),
+        'url'=> route('site.oficina',[$oficina->id,str_slug($oficina->titulo,'_')])
+      ];
+      return view('site.oficina', compact('oficina','galeria','direcaoImagem','servicos', 'seo'));
     }
 }
