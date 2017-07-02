@@ -13,11 +13,15 @@
 
 Route::get('/','Site\HomeController@index')->name('site.home');
 
-Route::get('/sobre', 'Site\PaginaController@sobre')->name('site.sobre');
-Route::get('/contato', 'Site\PaginaController@contato')->name('site.contato');
-Route::post('/contato/enviar', 'Site\PaginaController@enviarContato')->name('site.contato.enviar');
+Route::get('/sobre',
+'Site\PaginaController@sobre')->name('site.sobre');
+Route::get('/contato',
+'Site\PaginaController@contato')->name('site.contato');
+Route::post('/contato/enviar',
+'Site\PaginaController@enviarContato')->name('site.contato.enviar');
 
-Route::get('/oficina/{id}/{titulo?}','Site\OficinaController@index')->name('site.oficina');
+Route::get('/oficina/{id}/{titulo?}',
+'Site\OficinaController@index')->name('site.oficina');
 Route::get('/busca','Site\HomeController@busca')->name('site.busca');
 
 //Login - admin system
@@ -26,17 +30,20 @@ Route::get('/admin/login', function(){
 })->name('admin.login');
 
 //Metodo post para logar usuario
-Route::post('admin/login', 'Admin\UsuarioController@login')->name('admin.login');
+Route::post('admin/login',
+'Admin\UsuarioController@login')->name('admin.login');
 
 Route::group(['middleware' => 'auth'], function(){
 
-  Route::get('/admin/login/sair', 'Admin\UsuarioController@sair')->name('admin.sair');
+  Route::get('/admin/login/sair',
+  'Admin\UsuarioController@sair')->name('admin.sair');
 
   Route::get('/admin', function(){
     return view('admin.principal.index');
   })->name('admin.principal');
   //Crud usuarios
-  Route::get('/admin/usuarios', 'Admin\UsuarioController@index')->name('admin.usuarios');
+  Route::get('/admin/usuarios',
+  'Admin\UsuarioController@index')->name('admin.usuarios');
   Route::get('/admin/usuarios/adicionar',
   'Admin\UsuarioController@adicionar')->name('admin.usuarios.adicionar');
   Route::post('/admin/usuarios/salvar',
@@ -48,6 +55,14 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/usuarios/deletar/{id}',
   'Admin\UsuarioController@deletar')->name('admin.usuarios.deletar');
 
+  //Papel de usuários
+  Route::get('/admin/usuarios/papel/{id}',
+  'Admin\UsuarioController@papel')->name('admin.usuarios.papel');
+  Route::post('/admin/usuarios/papel/salvar/{id}',
+  'Admin\UsuarioController@salvarPapel')->name('admin.usuarios.papel.salvar');
+  Route::get('/admin/usuarios/papel/remover/{id}/{papel_id}',
+  'Admin\UsuarioController@removerPapel')->name('admin.usuarios.papel.remover');
+
   //Crud paginas
   Route::get('/admin/paginas',
   'Admin\PaginaController@index')->name('admin.paginas');
@@ -57,7 +72,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\PaginaController@atualizar')->name('admin.paginas.atualizar');
 
   // Crud do tipo de empresa
-  Route::get('/admin/tipo', 'Admin\TipoController@index')->name('admin.tipos');
+  Route::get('/admin/tipo',
+  'Admin\TipoController@index')->name('admin.tipos');
   Route::get('/admin/tipos/adicionar',
   'Admin\TipoController@adicionar')->name('admin.tipos.adicionar');
   Route::post('/admin/tipos/salvar',
@@ -70,7 +86,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\TipoController@deletar')->name('admin.tipos.deletar');
 
   // Crud das cidades
-  Route::get('/admin/cidades', 'Admin\CidadeController@index')->name('admin.cidades');
+  Route::get('/admin/cidades',
+  'Admin\CidadeController@index')->name('admin.cidades');
   Route::get('/admin/cidades/adicionar',
   'Admin\CidadeController@adicionar')->name('admin.cidades.adicionar');
   Route::post('/admin/cidades/salvar',
@@ -83,7 +100,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\CidadeController@deletar')->name('admin.cidades.deletar');
 
   // Crud dos oficinas
-  Route::get('/admin/oficinas', 'Admin\OficinaController@index')->name('admin.oficinas');
+  Route::get('/admin/oficinas',
+  'Admin\OficinaController@index')->name('admin.oficinas');
   Route::get('/admin/oficinas/adicionar',
   'Admin\OficinaController@adicionar')->name('admin.oficinas.adicionar');
   Route::post('/admin/oficinas/salvar',
@@ -96,7 +114,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\OficinaController@deletar')->name('admin.oficinas.deletar');
 
   // Crud da galeria
-  Route::get('/admin/galerias/{id}', 'Admin\GaleriaController@index')->name('admin.galerias');
+  Route::get('/admin/galerias/{id}',
+  'Admin\GaleriaController@index')->name('admin.galerias');
   Route::get('/admin/galerias/adicionar/{id}',
   'Admin\GaleriaController@adicionar')->name('admin.galerias.adicionar');
   Route::post('/admin/galerias/salvar/{id}',
@@ -109,7 +128,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\GaleriaController@deletar')->name('admin.galerias.deletar');
 
   // Crud dos serviços
-  Route::get('/admin/servicos/{id}', 'Admin\ServicoController@index')->name('admin.servicos');
+  Route::get('/admin/servicos/{id}',
+  'Admin\ServicoController@index')->name('admin.servicos');
   Route::get('/admin/servicos/adicionar/{id}',
   'Admin\ServicoController@adicionar')->name('admin.servicos.adicionar');
   Route::post('/admin/servicos/salvar/{id}',
@@ -122,7 +142,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\ServicoController@deletar')->name('admin.servicos.deletar');
 
   // Crud do slide
-  Route::get('/admin/slides', 'Admin\SlideController@index')->name('admin.slides');
+  Route::get('/admin/slides',
+  'Admin\SlideController@index')->name('admin.slides');
   Route::get('/admin/slides/adicionar',
   'Admin\SlideController@adicionar')->name('admin.slides.adicionar');
   Route::post('/admin/slides/salvar',
@@ -135,7 +156,8 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\SlideController@deletar')->name('admin.slides.deletar');
 
   // Crud dos papeis
-  Route::get('/admin/papel', 'Admin\PapelController@index')->name('admin.papel');
+  Route::get('/admin/papel',
+  'Admin\PapelController@index')->name('admin.papel');
   Route::get('/admin/papel/adicionar',
   'Admin\PapelController@adicionar')->name('admin.papel.adicionar');
   Route::post('/admin/papel/salvar',
@@ -148,11 +170,12 @@ Route::group(['middleware' => 'auth'], function(){
   'Admin\PapelController@deletar')->name('admin.papel.deletar');
 
   //Permissao
-  Route::get('/admin/papel/permissao/{id}', 'Admin\PapelController@permissao')->name('admin.papel.permissao');
-  Route::post('/admin/papel/permissao/{id}/salvar', 'Admin\PapelController@salvarPermissao')
-  ->name('admin.papel.permissao.salvar');
-  Route::get('/admin/papel/permissao/{id}/remover/{id_permissao}', 'Admin\PapelController@removerPermissao')
-  ->name('admin.papel.permissao.remover');
+  Route::get('/admin/papel/permissao/{id}',
+  'Admin\PapelController@permissao')->name('admin.papel.permissao');
+  Route::post('/admin/papel/permissao/{id}/salvar',
+  'Admin\PapelController@salvarPermissao')->name('admin.papel.permissao.salvar');
+  Route::get('/admin/papel/permissao/{id}/remover/{id_permissao}',
+  'Admin\PapelController@removerPermissao')->name('admin.papel.permissao.remover');
 
 
 });
