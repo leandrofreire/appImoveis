@@ -36,11 +36,11 @@ class User extends Authenticatable
     {
       if(is_string($papel)){
         return $this->papeis()->save(
-          Papel::where('nome','=',$papel)->firstOrFail();
+          Papel::where('nome','=',$papel)->firstOrFail()
         );
       }
       return $this->papeis()->save(
-        Papel::where('nome','=',$papel->nome)->firstOrFail();
+        Papel::where('nome','=',$papel->nome)->firstOrFail()
       );
     }
 
@@ -48,11 +48,11 @@ class User extends Authenticatable
     {
       if(is_string($papel)){
         return $this->papeis()->detach(
-          Papel::where('nome','=',$papel)->firstOrFail();
+          Papel::where('nome','=',$papel)->firstOrFail()
         );
       }
       return $this->papeis()->detach(
-        Papel::where('nome','=',$papel->nome)->firstOrFail();
+        Papel::where('nome','=',$papel->nome)->firstOrFail()
       );
     }
 }
