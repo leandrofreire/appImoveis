@@ -11,17 +11,26 @@ class PapelController extends Controller
 {
   public function index()
   {
+    if(!auth()->user()->can('papel_listar')){
+      return redirect()->route('admin.principal');
+    }
     $registros = Papel::all();
     return view('admin.papel.index', compact('registros'));
   }
 
   public function adicionar()
   {
+    if(!auth()->user()->can('papel_adicionar')){
+      return redirect()->route('admin.principal');
+    }
     return view('admin.papel.adicionar');
   }
 
   public function salvar(Request $request)
   {
+    if(!auth()->user()->can('papel_adicionar')){
+      return redirect()->route('admin.principal');
+    }
     Papel::create($request->all());
     \Session::flash('mensagem', [
       'msg'=> 'Papel salvo com sucesso',
@@ -32,6 +41,9 @@ class PapelController extends Controller
 
   public function editar($id)
   {
+    if(!auth()->user()->can('papel_editar')){
+      return redirect()->route('admin.principal');
+    }
     if(Papel::find($id)->nome == "admin"){
       return redirect()->route('admin.papel');
     }
@@ -40,6 +52,9 @@ class PapelController extends Controller
   }
   public function atualizar(Request $request, $id)
   {
+    if(!auth()->user()->can('papel_editar')){
+      return redirect()->route('admin.principal');
+    }
     if(Papel::find($id)->nome == "admin"){
       return redirect()->route('admin.papel');
     }
@@ -52,6 +67,9 @@ class PapelController extends Controller
   }
   public function deletar($id)
   {
+    if(!auth()->user()->can('papel_deletar')){
+      return redirect()->route('admin.principal');
+    }
     if(Papel::find($id)->nome == "admin"){
       return redirect()->route('admin.papel');
     }
