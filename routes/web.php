@@ -177,5 +177,11 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/papel/permissao/{id}/remover/{id_permissao}',
   'Admin\PapelController@removerPermissao')->name('admin.papel.permissao.remover');
 
+  Route::get('/admin/papel/permissao/{id}',
+  'Admin\PapelController@permissao')->name('admin.papel.permissao');
+  Route::post('/admin/papel/permissao/salvar/{id}',
+  'Admin\PapelController@salvarPermissao')->name('admin.papel.permissao.salvar');
+  Route::get('/admin/papel/permissao/remover/{id}/{id_permissao}',
+  'Admin\PapelController@removerPermissao')->name('admin.papel.permissao.remover');
 
 });
