@@ -33,9 +33,18 @@
             <td>{{ $registro->nome }}</td>
             <td>{{ $registro->descricao }}</td>
             <td>
+              @if($registro->nome != 'admin')
               <a class="btn orange" href="{{ route('admin.papel.editar', $registro->id) }}">Editar</a>
+              @else
+              <a class="btn orange disabled">Editar</a>
+              @endif
+
+              @if($registro->nome != 'admin')
               <a class="btn red" href="javascript: if(confirm('Deletar esse registro?'))
               { window.location.href = '{{ route('admin.papel.deletar', $registro->id) }}' }">Deletar</a>
+              @else
+              <a class="btn red disabled">Deletar</a>
+              @endif
             </td>
           </tr>
         </tbody>
