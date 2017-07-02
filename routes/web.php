@@ -134,4 +134,25 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/slides/deletar/{id}',
   'Admin\SlideController@deletar')->name('admin.slides.deletar');
 
+  // Crud dos papeis
+  Route::get('/admin/papel', 'Admin\PapelController@index')->name('admin.papel');
+  Route::get('/admin/papel/adicionar',
+  'Admin\PapelController@adicionar')->name('admin.papel.adicionar');
+  Route::post('/admin/papel/salvar',
+  'Admin\PapelController@salvar')->name('admin.papel.salvar');
+  Route::get('/admin/papel/editar/{id}',
+  'Admin\PapelController@editar')->name('admin.papel.editar');
+  Route::put('/admin/papel/atualizar/{id}',
+  'Admin\PapelController@atualizar')->name('admin.papel.atualizar');
+  Route::get('/admin/papel/deletar/{id}',
+  'Admin\PapelController@deletar')->name('admin.papel.deletar');
+
+  //Permissao
+  Route::get('/admin/papel/permissao/{id}', 'Admin\PapelController@permissao')->name('admin.papel.permissao');
+  Route::post('/admin/papel/permissao/{id}/salvar', 'Admin\PapelController@salvarPermissao')
+  ->name('admin.papel.permissao.salvar');
+  Route::get('/admin/papel/permissao/{id}/remover/{id_permissao}', 'Admin\PapelController@removerPermissao')
+  ->name('admin.papel.permissao.remover');
+
+
 });
