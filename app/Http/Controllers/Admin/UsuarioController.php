@@ -101,7 +101,7 @@ class UsuarioController extends Controller
 
     public function salvarPapel(Request $request, $id)
     {
-      $usuario = Usuario::find($id);
+      $usuario = User::find($id);
       $dados = $request->all();
       $papel = Papel::find($dados['papel_id']);
       $usuario->adicionaPapel($papel);
@@ -110,7 +110,7 @@ class UsuarioController extends Controller
 
     public function removerPapel($id, $papel_id)
     {
-      $usuario = Usuario::find($id);
+      $usuario = User::find($id);
       $papel = Papel::find($papel_id);
       $usuario->removerPapel($papel);
       return redirect()->back();
