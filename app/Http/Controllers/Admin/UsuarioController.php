@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;//Sistema de autentificação do Laravel
 use App\User;
+use App\Papel;
 
 class UsuarioController extends Controller
 {
@@ -88,4 +89,31 @@ class UsuarioController extends Controller
       ]);
       return redirect()->route('admin.usuarios');
     }
+
+
+    //Papel
+    public function papel($id)
+    {
+      $usuario = User::find($id);
+      $papel = Papel::all();
+      return view('admin.usuarios.papel', compact('usuario', 'papel'));
+    }
+
+    public function salvarPapel(Request $request, $id)
+    {
+      $usuario = Usuario::find($id);
+      $dados = $request->all();
+      $papel = Papel::find($dados['papel_id']);
+      $usuario->adicionaPapel($papel);
+      return redirect()->back();
+    }
+
+    public function removerPapel($id, $papel_id)
+    {
+      $usuario = Usuario::find($id);
+      $papel = Papel::find($papel_id);
+      $usuario->removerPapel($papel);
+      return redirect()->back();
+    }
+
 }
