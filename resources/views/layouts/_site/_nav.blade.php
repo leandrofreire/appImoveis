@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-wrapper blue">
     <div class="container">
-      <a href="{{ route('site.home') }}" class="brand-logo">SiteDinâmico</a>
+      <a href="{{ route('site.home') }}" class="brand-logo">4Mechanic</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse">
         <i class="material-icons">menu</i>
       </a>

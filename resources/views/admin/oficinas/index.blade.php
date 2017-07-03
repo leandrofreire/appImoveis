@@ -38,11 +38,11 @@
               <img width="100" src="{{ asset($registro->imagem) }}" alt="" />
             </td>
             <td>{{ $registro->publicar }}</td>
-            <td class="">
-              <a class="btn orange" href="{{ route('admin.oficinas.editar', $registro->id) }}">Editar</a>
-              <a class="btn green" href="{{ route('admin.galerias', $registro->id) }}">Galeria</a>
-              <a class="btn green" href="{{ route('admin.servicos', $registro->id) }}">Servicos</a>
-              <a class="btn red" href="javascript: if(confirm('Deletar esse registro?'))
+            <td class="col m12">
+              <a class="btn orange col m6" href="{{ route('admin.oficinas.editar', $registro->id) }}">Editar</a>
+              <a class="btn green col m6" href="{{ route('admin.galerias', $registro->id) }}">Galeria</a>
+              <a class="btn purple col m6" href="{{ route('admin.servicos', $registro->id) }}">Servicos</a>
+              <a class="btn red col m6" href="javascript: if(confirm('Deletar esse registro?'))
               { window.location.href = '{{ route('admin.oficinas.deletar', $registro->id) }}' }">Deletar</a>
             </td>
           </tr>
