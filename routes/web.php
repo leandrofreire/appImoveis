@@ -25,7 +25,7 @@ Route::get('/oficina/{id}/{titulo?}',
 Route::get('/busca','Site\HomeController@busca')->name('site.busca');
 
 // Booking
-Route::get('/booking/{id}/{oficina_id}/{titulo?}',
+Route::get('/booking/{id}/{titulo?}',
 'Site\BookingController@index')->name('site.booking');
 
 //Login - admin system

@@ -46,12 +46,19 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+          <input placeholder="Nome completo" id="first_name" type="text" class="validate">
+          <label for="first_name">Nome</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="date" class="datepicker" placeholder="Data">
+          <label for="">Escolha o dia</label>
+        </div>
+        <div class="input-field col s6">
+           <input type="date" class="timepicker" placeholder="Hora">
         </div>
       </div>
     </form>
