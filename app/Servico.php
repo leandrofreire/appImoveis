@@ -11,4 +11,10 @@ class Servico extends Model
     {
       return $this->belongsTo('App\oficina','oficina_id');
     }
+
+    // Relacionamento com Booking
+    public function bookings()
+    {
+      return $this->hasMany('App\Booking');
+    }
 }
