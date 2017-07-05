@@ -43,7 +43,9 @@
       <p><b>Endereço:</b> {{ $oficina->endereco }}</p>
       <p><b>Cep:</b>{{ $oficina->cep }}</p>
       <p><b>Cidade:</b>{{ $oficina->cidade->nome }}</p>
-      <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato</a>
+      <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato
+        <i class="material-icons prefix">settings_phone</i>
+      </a>
     </div>
   </div>
 
