@@ -58,10 +58,35 @@
           <label for="">Escolha o dia</label>
         </div>
         <div class="input-field col s6">
-           <input type="text" class="timepicker" placeholder="Hora">
-           <label for="">Escolha a hora</label>
-        </div>
-        <div class="input-field col s6">
+        <select>
+          <option value="" disabled selected>Hora</option>
+          <option value="1">08:00</option>
+          <option value="1">08:30</option>
+          <option value="1">09:00</option>
+          <option value="1">09:30</option>
+          <option value="1">10:00</option>
+          <option value="1">10:30</option>
+          <option value="1">11:00</option>
+          <option value="1">11:30</option>
+          <option value="1">12:00</option>
+          <option value="1">12:30</option>
+          <option value="1">13:00</option>
+          <option value="1">13:30</option>
+          <option value="1">14:00</option>
+          <option value="1">14:30</option>
+          <option value="1">15:00</option>
+          <option value="1">15:30</option>
+          <option value="1">16:00</option>
+          <option value="1">16:30</option>
+          <option value="1">17:00</option>
+          <option value="1">17:30</option>
+          <option value="1">18:00</option>
+          <option value="1">18:30</option>
+          <option value="1">19:00</option>
+        </select>
+        <label>Escolha a hora</label>
+      </div>
+        <div class="input-field col s12">
            <input type="text" class="validate" placeholder="Carro">
            <label for="">Modelo do carro<label>
         </div>
