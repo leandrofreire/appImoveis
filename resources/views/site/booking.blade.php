@@ -58,9 +58,18 @@
           <label for="">Escolha o dia</label>
         </div>
         <div class="input-field col s6">
-           <input type="date" class="timepicker" placeholder="Hora">
+           <input type="text" class="timepicker" placeholder="Hora">
+           <label for="">Escolha a hora</label>
+        </div>
+        <div class="input-field col s6">
+           <input type="text" class="validate" placeholder="Carro">
+           <label for="">Modelo do carro<label>
+        </div>
+        <div class="input-field col s6">
+           <button class="btn" type="button" name="button">Agendar</button>
         </div>
       </div>
+
     </form>
   </div>
 
