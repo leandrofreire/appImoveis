@@ -56,5 +56,6 @@
     <script src="{{ asset('lib/jquery/dist/jquery.js') }}"></script>
     <script src="{{ asset('lib/materialize/dist/js/materialize.js') }}"></script>
     <script src="{{ asset('js/init.js') }}"></script>
+    <script src="{{ asset('js/time.js') }}"></script>
 </body>
 </html>
