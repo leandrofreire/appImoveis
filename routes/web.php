@@ -27,6 +27,9 @@ Route::get('/busca','Site\HomeController@busca')->name('site.busca');
 // Booking
 Route::get('/booking/{id}/{titulo?}',
 'Site\BookingController@index')->name('site.booking');
+// Booking salvar
+Route::post('/booking/salvar',
+'Site\BookingController@salvar')->name('site.booking.salvar');
 
 //Login - admin system
 Route::get('/admin/login', function(){

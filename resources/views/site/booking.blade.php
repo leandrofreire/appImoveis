@@ -43,18 +43,19 @@
   </div>
 
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" action="{{ route('site.booking.salvar') }}" method="post">
+      {{ csrf_field() }}
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Nome completo" id="first_name" type="text" class="validate">
+          <input name="nome" placeholder="Nome completo" id="first_name" type="text" class="validate">
           <label for="first_name">Nome</label>
         </div>
         <div class="input-field col s6">
-          <input id="email" type="email" class="validate">
+          <input name="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
         <div class="input-field col s6">
-          <input type="date" class="datepicker" placeholder="Data">
+          <input name="data" type="date" class="datepicker" placeholder="Data">
           <label for="">Escolha o dia</label>
         </div>
         <div class="input-field col s6">
@@ -87,11 +88,11 @@
         <label>Escolha a hora</label>
       </div>
         <div class="input-field col s12">
-           <input type="text" class="validate" placeholder="Carro">
+           <input name="modelo" type="text" class="validate" placeholder="Carro">
            <label for="">Modelo do carro<label>
         </div>
         <div class="input-field col s6">
-           <button class="btn" type="button" name="button">Agendar</button>
+           <button class="btn">Agendar</button>
         </div>
       </div>
 
