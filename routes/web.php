@@ -31,6 +31,9 @@ Route::get('/booking/{id}/{titulo?}',
 // Booking salvar
 Route::post('/booking/agendar/{id}/',
 'Site\BookingController@salvar')->name('site.booking.salvar');
+// Booking lista
+Route::get('/booking/agenda/{id?}/{id_oficina?}',
+'Site\BookingController@index')->name('site.booking.agenda');
 
 
 //Login - admin system

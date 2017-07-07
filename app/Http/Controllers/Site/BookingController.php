@@ -11,6 +11,14 @@ use App\Booking;
 
 class BookingController extends Controller
 {
+    public function index($id)
+    {
+      $servico = Servico::find($id);
+      //$oficina = Oficina::find($id_oficina);
+      $booking = Booking::all();
+      dd($servico);
+      return view('site.booking.agenda', compact('booking', 'servico'));
+    }
     public function adicionar($id)
     {
       $servico = Servico::find($id);
@@ -37,6 +45,6 @@ class BookingController extends Controller
         'msg'=>'Serviço Agendado com sucesso!',
         'class'=>'green white-text']);
 
-        return redirect()->route('site.home');
+        return redirect()->route('site.booking.agenda');
     }
 }

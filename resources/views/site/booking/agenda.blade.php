@@ -11,6 +11,15 @@
 
   <div class="row">
     Deu certo
+    <tbody>
+      @foreach($booking as $book)
+      <tr>
+        <td>
+          {{ $book->nome }}
+        </td>
+      </tr>
+    </tbody>
+
   </div>
 
 </div>
