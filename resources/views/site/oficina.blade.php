@@ -57,7 +57,7 @@
           <p><b>R$: {{ number_format($servico->valor,2,",",".") }}</b></p>
         </div>
         <div class="card-action">
-          <a href="{{ route('site.booking',[$servico->id,str_slug($servico->titulo,'_')]) }}">Agendar</a>
+          <a href="{{ route('site.booking.reservar',[$servico->id,str_slug($servico->titulo,'_')]) }}">Agendar</a>
         </div>
       </div>
     </div>
