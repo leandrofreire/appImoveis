@@ -24,9 +24,14 @@ Route::get('/oficina/{id}/{titulo?}',
 'Site\OficinaController@index')->name('site.oficina');
 Route::get('/busca','Site\HomeController@busca')->name('site.busca');
 
-// Booking
+// Booking Agendar
 Route::get('/booking/{id}/{titulo?}',
-'Site\BookingController@index')->name('site.booking');
+'Site\BookingController@adicionar')->name('site.booking.reservar');
+
+// Booking salvar
+Route::post('/booking/agendar/{id}/',
+'Site\BookingController@salvar')->name('site.booking.salvar');
+
 
 //Login - admin system
 Route::get('/admin/login', function(){
